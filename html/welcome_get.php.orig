@@ -1,0 +1,21 @@
+<html>
+<body>
+
+Name: <?php echo $_GET["name"]; ?><br>
+Password: <?php echo $_GET["email"]; ?>
+
+<?php
+$dir = '/home/pi/Desktop/phpDir';
+if(!file_exists($dir)) {
+	echo "Hi, doing this";
+	$oldMask = umask(0);
+	mkdir ($dir, 0744) or die("whoops");
+}
+
+$path = '/home/pi/Desktop/test.txt';
+$file = fopen(path, "w") or die("Unable to open file!");
+echo fwrite($file, "Hello World. Testing!");
+fclose($file);
+?>
+</body>
+</html>
