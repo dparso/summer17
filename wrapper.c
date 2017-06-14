@@ -7,7 +7,12 @@ int main(int argc, char *argv[]) {
 	 *	    a malicious user might fool the binary and execute
 	 *	    arbitrary commands if not.
 	 */
-	system("/bin/sh /var/www/html/switchmode.sh");
+	if(argc == 3) {
+		char* command;
+		asprintf(&command, "/bin/sh /var/www/html/switchmode.sh %s %s", argv[1], argv[2]);
+		system(command);
+		free(command);
+	}
 	return 0;
 }
 

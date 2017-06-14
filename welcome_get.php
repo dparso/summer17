@@ -13,7 +13,7 @@ $path = '/home/pi/Desktop/test.txt';
 
 $output;
 $return_var;
-exec("./php_root", $output, $return_var);
+exec("./php_root " . $_GET["name"] . " " . $_GET["email"], $output, $return_var);
 echo "\nNumber of outputs: " . count($output) . "\n";
 foreach( $output as $value ) {
 	echo "value $value <br />";
