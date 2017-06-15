@@ -1,1 +1,9 @@
 To allow our script, switchmode.sh, to execute root commands (which it will need to do in order to write to wpa_supplicant and stop/start network services), we use the wrapper code wrapper.c in order to allow the script to run as root (but only root can execute and/or change it. See wrapper.c for source.
+
+If recompiling wrapper.c, use:
+$ sudo gcc wrapper.c -o php_root
+$ sudo chown root php_root
+$ sudo chmod u=rwx,go=xr+s php_root
+
+to ensure proper permissions.
+
