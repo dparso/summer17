@@ -16,38 +16,30 @@ int main(int argc, char *argv[]) {
 		char* password;
 		int firstProvided = 0;
 		int secondProvided = 0;
-		int hostMode = 0;
 		
-		// parse command line for inputs
-		// n: name (value of name), p: password (value of password)
-		// h: host (flagged if switching to host mode, not client mode)
-		while((c = getopt(argc, argv, "n:p:h")) != EOF) {
+		while((c = getopt(argc, argv, "n:p:")) != EOF) {
 			switch (c) {
 				case 'n':
+					printf("Argument for option n is %s\n", optarg);
 					network = optarg;
 					firstProvided = 1;
 					break;
 				case 'p':
+					printf("Argument for option p is %s\n", optarg);
 					password = optarg;
 					secondProvided = 1;
-					break;
-				case 'h':
-					hostMode = 1;
 					break;
 			}
 		}
 		
-		if(hostMode) {
-			system("/bin/sh /var/www/html/hostmode.sh");			
-		} else if(firstProvided && secondProvided) {
+		if(firstProvided && secondProvided) {
 			// avoid calling script with a null pointer
 			char* command;
-			printf("Executing command /bin/sh /var/www/html/clientmode.sh '%s' '%s'\n", network, password);
-			if (asprintf(&command, "/bin/sh /var/www/html/clientmode.sh '%s' '%s'", network, password)) {
-				// execl instead?
-				system(command);
-				free(command);
-			}
+			printf("Executing command /bin/sh /var/www/html/switchmode.sh '%s' '%s'\n", network, password);
+			asprintf(&command, "/bin/sh /var/www/html/switchmode.sh '%s' '%s'", network, password);
+			printf("%s\n", command);
+			system(command);
+			free(command);
 		}
 	}
 

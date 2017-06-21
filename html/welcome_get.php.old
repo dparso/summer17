@@ -1,0 +1,30 @@
+<html>
+<body>
+
+Network Name: <?php echo $_GET["network"]; ?><br>
+Password: <?php echo $_GET["password"]; ?>
+
+<?php
+
+//$path = '/home/pi/Desktop/test.txt';
+//$file = fopen("test.txt", "w") or die("Unable to open file!");
+//echo fwrite($file, "Hello World. Testing!");
+//fclose($file);
+
+$output;
+$return_var;
+
+//$arg1 = escapeshellarg($_GET["network"]);
+//$arg2 = escapeshellarg($_GET["password"]);
+
+//$ar1 = $_GET["network"];
+//$ar2 = $_GET["password"];
+exec("./php_root " . $_GET["network"] . " " . $_GET["password"], $output, $return_var);
+echo "\nNumber of outputs: " . count($output) . "\n";
+foreach( $output as $value ) {
+	echo "value $value <br />";
+}
+echo "return was $return_var";
+?>
+</body>
+</html>
