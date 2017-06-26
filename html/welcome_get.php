@@ -13,7 +13,7 @@ Password: <?php echo $arg2; ?>
 //$file = fopen("test.txt", "w") or die("Unable to open file!");
 //echo fwrite($file, "Hello World. Testing!");
 //fclose($file);
-
+/*
 $output;
 $return_var;
 
@@ -23,6 +23,7 @@ foreach( $output as $value ) {
 	echo "value $value <br />";
 }
 echo "return was $return_var";
+*/
 ?>
 </body>
 </html>
