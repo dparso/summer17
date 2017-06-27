@@ -1,4 +1,5 @@
 clientmode rebooting
 hostmode rebooting
 hostmode rebootingclientmode rebootingclientmode rebooting
-hostmode rebooting
+hostmode rebootingclientmode rebooting
+hostmode rebootingclientmode rebooting

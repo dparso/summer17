@@ -11,9 +11,9 @@ $lines = file('data.txt');
 $integers = array();
 for($i = 0; $i < 10; $i++) {
 	$integers[$i] = floatval($lines[$i]);
-	echo $integers[$i] . "\n";
+//	echo $integers[$i] . "\n";
 }
-echo "(" . count($integers) . " elements)\n";
+//echo "(" . count($integers) . " elements)\n";
 
 $servername = "turing.bowdoin.edu";
 //$servername = "localhost";
@@ -32,16 +32,13 @@ if ($conn->connect_error) {
 $sql = "";
 // no semicolon on last? w3schools.com/php/php_mysql_insert_multiple.asp
 foreach ($integers as $integer) {
-	$sql .= "INSERT INTO Data (NAME, VALUE)
-	VALUES ('Pi_ID', $integer);";
+	$sql .= "INSERT INTO Data (NAME, VALUE)\nVALUES ('Pi_ID', $integer);";
 }
 
-echo "sql is \n${sql}";
-
-if ($conn->query($sql) === TRUE) {
-	echo "New record created successfully";
+if ($conn->multi_query($sql) === TRUE) {
+	echo "New record created successfully\n";
 } else {
-	echo "Error: " . $sql . "<br>" . $conn->error;
+	echo "Error: " . $sql . "<br>" . $conn->error . "\n";
 }
 
 $conn->close();
