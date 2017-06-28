@@ -1,3 +1,7 @@
+//<!DOCTYPE html>
+//<html>
+//<body>
+
 <?php
 
 $servername = "turing.bowdoin.edu";
@@ -34,3 +38,6 @@ header('Content-type: application/json');
 echo json_encode($jsonArray);
 
 ?>
+
+//</body>
+//</html>
