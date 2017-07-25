@@ -38,12 +38,12 @@ int main(int argc, char *argv[]) {
 		}
 		
 		if(hostMode) {
-			system("/bin/sh /var/www/html/hostmode.sh");			
+			system("/bin/bash /var/www/html/hostmode.sh");			
 		} else if(firstProvided && secondProvided) {
 			// avoid calling script with a null pointer
 			char* command;
-			printf("Executing command /bin/sh /var/www/html/clientmode.sh '%s' '%s'\n", network, password);
-			if (asprintf(&command, "/bin/sh /var/www/html/clientmode.sh '%s' '%s'", network, password)) {
+			printf("Executing command /bin/bash /var/www/html/clientmode.sh '%s' '%s'\n", network, password);
+			if (asprintf(&command, "/bin/bash /var/www/html/clientmode.sh '%s' '%s'", network, password)) {
 				// execl instead?
 				system(command);
 				free(command);

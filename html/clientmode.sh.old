@@ -12,4 +12,5 @@ bash -c "sudo touch /var/www/html/clientFlag.txt"
 
 bash -c "cp /etc/rc.local.client /etc/rc.local"
 bash -c "printf 'clientmode rebooting' >> /var/www/html/log.txt"
+
 bash -c "reboot"
